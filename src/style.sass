@@ -1,8 +1,8 @@
 $test: 1px solid red
+$input-width: 985px
+$margin-ctrl-space: 100px 
 
 body
-    // width: 100%
-    // height: 100%
     height: 100vh
     background-color: #c59369
     font-family: 'Darker Grotesque', sans-serif
@@ -11,17 +11,18 @@ body
     background-color: #c59369
 .header
     margin: 0 auto
-    width: 15%
+    width: $input-width
     &__title
         text-align: center
         font-size: 38px
 .input
     margin: 65px auto
-    width: 30%
+    width: $input-width
     &__content
         width: 100%
         height: 400px
-        border: none
+        padding: 10px
+        border: 1px solid #8399C1
         font-size: 1.2rem
         line-height: 140%
         resize: none
@@ -35,28 +36,68 @@ body
         margin: 0 auto
         padding: 10px 20px
         max-width: 80vw
+    &__close
+        visibility: visible
+        display: block
+        float: right
+        position: relative
+        top: 15px
+        right: 13px
+        width: 30px
+        height: 20px
+        cursor: pointer
+        &::after, &::before
+            content: ''
+            position: absolute
+            width: 100%
+            height: 2px
+        &::after
+            background-color: #ffffff
+            transform: rotate(45deg)
+        &::before
+            background-color: #ffffff
+            transform: rotate(-45deg)
+
 .keys
     margin: 0 auto
-    width: 979px
+    width: $input-width
     background-color: #b3b3b3
-    border-radius: 10px
     &__content
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: center
         padding: 10px
-.key
-    display: inline
-    padding: 2px
+.btn
+    border-radius: 7px
+    margin: 2px
 button
     background-color: #ffffff
     border: none
-    border-radius: 10px
+    border-radius: 30px
     padding: 15px 25px
     margin: 3px 0
+    cursor: pointer
 span
     font-size: 1.3rem
     font-weight: 400
 button:hover
     background-color: #ffe6d1
     color: #1d2d56
+    transition: all 0.3s ease 0s
 button:active
     transform: translate(1px,1px)
     animation-duration: 21s
+    transition: all 0.2s ease 0s
+.left-btn, .right-btn, .up-btn, .down-btn
+    width: 15px
+.ctr-btn
+    margin-left: $margin-ctrl-space + 10px
+.space-btn
+    margin-right: $margin-ctrl-space + 48px
+    width: 300px
+@media (max-width: 1200px)
+    .keyboard__close
+        visibility: hidden
+    .keyboard
+        display: none

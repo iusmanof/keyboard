@@ -17,73 +17,75 @@
             <h1 class="header__title">Virtual keyboard</h1>
         </header>
         <div class="input">
-            <textarea  class="input__content" name="textar"  cols="30" rows="10" placeholder="Use virtual keyboard ... " wrap="hard" ></textarea>
+            <textarea class="input__content" name="textarea" cols="30" rows="10" placeholder="Use virtual keyboard ... "
+                wrap="hard"></textarea>
         </div>
         <div class="keyboard">
+            <div class="keyboard__close">
+                <span class="keyboard__close-btn"></span>
+            </div>
             <div class="keyboard__content">
                 <div class="keys">
                     <div class="keys__content">
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-6"><span>A</span></button>
-                        <button class="btn-1"><span>A</span></button>
-                        <button class="btn-1"><span>Hover Me</span></button>
+                        <!-- <button class="btn"><span>`</span></button>
+                        <button class="btn"><span>1</span></button>
+                        <button class="btn"><span>2</span></button>
+                        <button class="btn"><span>3</span></button>
+                        <button class="btn"><span>4</span></button>
+                        <button class="btn"><span>5</span></button>
+                        <button class="btn"><span>6</span></button>
+                        <button class="btn"><span>7</span></button>
+                        <button class="btn"><span>9</span></button>
+                        <button class="btn"><span>0</span></button>
+                        <button class="btn"><span>-</span></button>
+                        <button class="btn"><span>=</span></button>
+                        <button class="btn"><span>backspace</span></button>
+                        <button class="btn"><span>tab</span></button>
+                        <button class="btn"><span>q</span></button>
+                        <button class="btn"><span>w</span></button>
+                        <button class="btn"><span>e</span></button>
+                        <button class="btn"><span>r</span></button>
+                        <button class="btn"><span>t</span></button>
+                        <button class="btn"><span>y</span></button>
+                        <button class="btn"><span>u</span></button>
+                        <button class="btn"><span>i</span></button>
+                        <button class="btn"><span>o</span></button>
+                        <button class="btn"><span>p</span></button>
+                        <button class="btn"><span>[</span></button>
+                        <button class="btn"><span>]</span></button>
+                        <button class="btn"><span>\</span></button>
+                        <button class="btn caps-btn"><span>caps lock</span></button>
+                        <button class="btn"><span>a</span></button>
+                        <button class="btn"><span>s</span></button>
+                        <button class="btn"><span>d</span></button>
+                        <button class="btn"><span>f</span></button>
+                        <button class="btn"><span>g</span></button>
+                        <button class="btn"><span>h</span></button>
+                        <button class="btn"><span>h</span></button>
+                        <button class="btn"><span>j</span></button>
+                        <button class="btn"><span>k</span></button>
+                        <button class="btn"><span>l</span></button>
+                        <button class="btn"><span>;</span></button>
+                        <button class="btn"><span>'</span></button>
+                        <button class="btn"><span>enter</span></button>
+                        <button class="btn shift-btn"><span>shift</span></button>
+                        <button class="btn"><span>z</span></button>
+                        <button class="btn"><span>x</span></button>
+                        <button class="btn"><span>c</span></button>
+                        <button class="btn"><span>v</span></button>
+                        <button class="btn"><span>b</span></button>
+                        <button class="btn"><span>n</span></button>
+                        <button class="btn"><span>m</span></button>
+                        <button class="btn"><span>,</span></button>
+                        <button class="btn"><span>.</span></button>
+                        <button class="btn"><span>/</span></button>
+                        <button class="btn"><span><img class="right-btn" src="./assets/up.svg" alt="right"></span></button>
+                        <button class="btn ctr-btn"><span>ctrl</span></button>
+                        <button class="btn language-btn"><span>en</span></button>
+                        <button class="btn space-btn"><span>space</span></button>
+                        <button class="btn"><span><img class="right-btn" src="./assets/left.svg" alt="right"></span></button>
+                        <button class="btn"><span><img class="right-btn" src="./assets/down.svg" alt="right"></span></button>
+                        <button class="btn"><span><img class="right-btn" src="./assets/right.svg" alt="right"></span></button> -->
                     </div>
                 </div>
             </div>

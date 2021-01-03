@@ -1,7 +1,9 @@
 import 'normalize.css'
 import './style.sass'
-import * as Test from '../src/test'
-Test.main();
+import * as keyboard from '../src/keyboard'
+keyboard.main();
+
+
 
 // import {en} from './keys/enKeys.js';
 // import {ru} from './keys/ruKeys.js';
