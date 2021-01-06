@@ -1,11 +1,11 @@
 $test: 1px solid red
-$input-width: 985px
-$margin-ctrl-space: 100px 
+$input-width: 1000px
+$margin80px: 40px 
 
 body
     height: 100vh
     background-color: #c59369
-    font-family: 'Darker Grotesque', sans-serif
+    font-family: 'Noto Sans', sans-serif
 .wrapper
     height: 100vh
     background-color: #c59369
@@ -91,10 +91,16 @@ button:active
     transition: all 0.2s ease 0s
 .left-btn, .right-btn, .up-btn, .down-btn
     width: 15px
-.ctr-btn
-    margin-left: $margin-ctrl-space + 10px
-.space-btn
-    margin-right: $margin-ctrl-space + 48px
+#Tab
+    margin-left: $margin80px
+#Caps
+    margin-left: $margin80px
+#Shift
+    margin-left: $margin80px
+#Ctrl
+    margin-left: $margin80px + 216px
+#Space
+    margin-right: $margin80px
     width: 300px
 @media (max-width: 1200px)
     .keyboard__close
