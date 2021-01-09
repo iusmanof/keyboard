@@ -4,98 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
     <link rel="shortcut icon" href="assets/keyboard.svg" type="image/x-icon" />
     <title>src</title>
 </head>
 
 <body>
 
+    <body>
+        <h1 class="header__title">Virtual keyboard</h1>
+        <textarea class="input" name="textarea" cols="30" rows="10" placeholder="Use virtual keyboard ... "
+            wrap="hard"></textarea>
+
+        <!-- <div class="keyboard">
+            <div class="row">
+                <button> ` </button>
+                <button> 1 </button>
+                <button> 2 </button>
+                <button> 3 </button>
+                <button> 4 </button>
+                <button> 5 </button>
+                <button> 6 </button>
+                <button> 7 </button>
+                <button> 9 </button>
+                <button> 0 </button>
+                <button> - </button>
+                <button> = </button>
+                <button> backspace </button>
+            </div>
+
+            <div class="row"> 
+                <button> tab </button>
+                <button> q </button>
+                <button> w </button>
+                <button> e </button>
+                <button> r </button>
+                <button> t </button>
+                <button> y </button>
+                <button> u </button>
+                <button> i </button>
+                <button> o </button>
+                <button> p </button>
+                <button> [ </button>
+                <button> ] </button>
+                <button> \ </button>
+            </div>
+
+            
+
+
+            <button class="btn caps-btn"> caps lock </button>
+            <button> a </button>
+            <button> s </button>
+            <button> d </button>
+            <button> f </button>
+            <button> g </button>
+            <button> h </button>
+            <button> h </button>
+            <button> j </button>
+            <button> k </button>
+            <button> l </button>
+            <button> ; </button>
+            <button> ' </button>
+            <button> enter </button>
+            <button class="btn shift-btn"> shift </button>
+            <button> z </button>
+            <button> x </button>
+            <button> c </button>
+            <button> v </button>
+            <button> b </button>
+            <button> n </button>
+            <button> m </button>
+            <button> , </button>
+            <button> . </button>
+            <button> / </button>
+            <button> <img class="right-btn" src="./assets/up.svg" alt="right"> </button>
+            <button class="btn ctr-btn"> ctrl </button>
+            <button class="btn language-btn"> en </button>
+            <button class="btn space-btn"> space </button>
+            <button> <img class="right-btn" src="./assets/down.svg" alt="<img class=" right-btn" src="./assets/left.svg"
+                    alt="right"> </button>
+            <button> <img class="right-btn" src="./assets/down.svg" alt="<img class=" right-btn" src="./assets/left.svg"
+                    alt="right"> </button>
+        </div> -->
+
+    </body>
 </body>
-    
+
 </html>
-
-
-<!-- <body>
-    <div class="wrapper">
-        <header class="header">
-            <h1 class="header__title">Virtual keyboard</h1>
-        </header>
-        <div class="input">
-            <textarea class="input__content" name="textarea" cols="30" rows="10" placeholder="Use virtual keyboard ... "
-                wrap="hard"></textarea>
-        </div>
-        <div class="keyboard">
-            <div class="keyboard__close">
-                <span class="keyboard__close-btn"></span>
-            </div>
-            <div class="keyboard__content">
-                <div class="keys">
-                    <div class="keys__content">
-                        <button class="btn"><span>`</span></button>
-                        <button class="btn"><span>1</span></button>
-                        <button class="btn"><span>2</span></button>
-                        <button class="btn"><span>3</span></button>
-                        <button class="btn"><span>4</span></button>
-                        <button class="btn"><span>5</span></button>
-                        <button class="btn"><span>6</span></button>
-                        <button class="btn"><span>7</span></button>
-                        <button class="btn"><span>9</span></button>
-                        <button class="btn"><span>0</span></button>
-                        <button class="btn"><span>-</span></button>
-                        <button class="btn"><span>=</span></button>
-                        <button class="btn"><span>backspace</span></button>
-                        <button class="btn"><span>tab</span></button>
-                        <button class="btn"><span>q</span></button>
-                        <button class="btn"><span>w</span></button>
-                        <button class="btn"><span>e</span></button>
-                        <button class="btn"><span>r</span></button>
-                        <button class="btn"><span>t</span></button>
-                        <button class="btn"><span>y</span></button>
-                        <button class="btn"><span>u</span></button>
-                        <button class="btn"><span>i</span></button>
-                        <button class="btn"><span>o</span></button>
-                        <button class="btn"><span>p</span></button>
-                        <button class="btn"><span>[</span></button>
-                        <button class="btn"><span>]</span></button>
-                        <button class="btn"><span>\</span></button>
-                        <button class="btn caps-btn"><span>caps lock</span></button>
-                        <button class="btn"><span>a</span></button>
-                        <button class="btn"><span>s</span></button>
-                        <button class="btn"><span>d</span></button>
-                        <button class="btn"><span>f</span></button>
-                        <button class="btn"><span>g</span></button>
-                        <button class="btn"><span>h</span></button>
-                        <button class="btn"><span>h</span></button>
-                        <button class="btn"><span>j</span></button>
-                        <button class="btn"><span>k</span></button>
-                        <button class="btn"><span>l</span></button>
-                        <button class="btn"><span>;</span></button>
-                        <button class="btn"><span>'</span></button>
-                        <button class="btn"><span>enter</span></button>
-                        <button class="btn shift-btn"><span>shift</span></button>
-                        <button class="btn"><span>z</span></button>
-                        <button class="btn"><span>x</span></button>
-                        <button class="btn"><span>c</span></button>
-                        <button class="btn"><span>v</span></button>
-                        <button class="btn"><span>b</span></button>
-                        <button class="btn"><span>n</span></button>
-                        <button class="btn"><span>m</span></button>
-                        <button class="btn"><span>,</span></button>
-                        <button class="btn"><span>.</span></button>
-                        <button class="btn"><span>/</span></button>
-                        <button class="btn"><span><img class="right-btn" src="./assets/up.svg" alt="right"></span></button>
-                        <button class="btn ctr-btn"><span>ctrl</span></button>
-                        <button class="btn language-btn"><span>en</span></button>
-                        <button class="btn space-btn"><span>space</span></button>
-                        <button class="btn"><span></span></button>
-                        <button class="btn"><span><img class="right-btn" src="./assets/down.svg" alt="<img class="right-btn" src="./assets/left.svg" alt="right">right"></span></button>
-                        <button class="btn"><span><img class="right-btn" src="./assets/right.svg" alt="right"></span></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body> -->
