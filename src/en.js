@@ -16,7 +16,6 @@ const en = [
         { code: 'Equal', key: '=', shift: '+' },
         { code: 'Backspace', key: 'Backspace', fnKey: true},
     ],
-    
     // row - 2
     [
         { code: 'Tab', key: 'Tab'},
@@ -34,7 +33,7 @@ const en = [
         { code: 'BracketRight', key: ']', shift: '}'},
         { code: 'Backslash', key: '\\', shift: '|'},
     ],
-        
+  
     // 3 row
     [
         { code: 'CapsLock', key: 'caps', fnKey: true },
@@ -55,7 +54,7 @@ const en = [
       
     // row - 4
     [
-        { code: 'Shift', key: 'Shift', fnKey: true },
+        { code: 'ShiftLeft', key: 'Shift', fnKey: true },
         { code: 'KeyZ', key: 'z', shift: 'Z',},
         { code: 'KeyX', key: 'x', shift: 'X',},
         { code: 'KeyC', key: 'c', shift: 'C',},
@@ -66,8 +65,8 @@ const en = [
         { code: 'Comma', key: ',', shift: '<',},
         { code: 'Period', key: '.', shift: '>',},
         { code: 'Slash', key: '/', shift: '?',},
-        { code: 'ArrowUp', key: 'up', fnKey: true },
-        { code: 'Shift', key: 'Shift', fnKey: true },
+        { code: 'ArrowUp', key: '', fnKey: true },
+        { code: 'ShiftRight', key: 'Shift', fnKey: true },
     ],
 
     // row - 5 
@@ -77,9 +76,9 @@ const en = [
         { code: 'Space', key: ' ', fnKey: true },
         { code: 'ControlRight', key: 'Ctrl', fnKey: true },
         { code: 'AltRight', key: 'Alt', fnKey: true },
-        { code: 'ArrowLeft', key: 'up', fnKey: true },
-        { code: 'ArrowDown', key: 'up', fnKey: true },
-        { code: 'ArrowRight', key: 'up', fnKey: true }
+        { code: 'ArrowLeft', key: '', fnKey: true },
+        { code: 'ArrowDown', key: '', fnKey: true },
+        { code: 'ArrowRight', key: '', fnKey: true }
     ]
 ]
 

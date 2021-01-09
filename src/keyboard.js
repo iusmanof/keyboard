@@ -31,7 +31,8 @@ function initKeyboard(langKeys) {
         row.classList.add('row');
         line.forEach((element) => {
             const button = document.createElement('button');
-            button.innerText = element.key
+            button.innerText = element.key;
+            button.setAttribute('id',element.code);
             row.append(button);
         });
         keyboard.appendChild(row);
