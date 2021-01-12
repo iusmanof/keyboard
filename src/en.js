@@ -18,7 +18,7 @@ const en = [
     ],
     // row - 2
     [
-        { code: 'Tab', key: 'Tab'},
+        { code: 'Tab', key: 'Tab', fnKey: true},
         { code: 'KeyQ', key: 'q', shift: 'Q'},
         { code: 'KeyW', key: 'w', shift: 'W'},
         { code: 'KeyE', key: 'e', shift: 'E'},
@@ -36,7 +36,7 @@ const en = [
   
     // 3 row
     [
-        { code: 'CapsLock', key: 'caps', fnKey: true },
+        { code: 'CapsLock', key: 'Caps', fnKey: true },
         { code: 'KeyA', key: 'a', shift: 'A',},
         { code: 'KeyS', key: 's', shift: 'S',},
         { code: 'KeyD', key: 'd', shift: 'D',},
@@ -73,7 +73,7 @@ const en = [
     [
         { code: 'ControlLeft', key: 'Ctrl', fnKey: true },
         { code: 'AltLeft', key: 'Alt', fnKey: true },
-        { code: 'Space', key: ' ', fnKey: true },
+        { code: 'Space', key: ' '},
         { code: 'ControlRight', key: 'Ctrl', fnKey: true },
         { code: 'AltRight', key: 'Alt', fnKey: true },
         { code: 'ArrowLeft', key: '', fnKey: true },
