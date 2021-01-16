@@ -9,8 +9,28 @@ let input = document.querySelector(' .input');
 
 function main() {
     document.addEventListener('keydown', _keyDown);
-
     initKeyboard(langKeys);
+    showKeyboard();
+}
+
+function showKeyboard() {
+
+    document.onkeydown = function (e) {
+        e = e || window.event;
+        if (e.shiftKey && e.which == 9) {
+            toggleKeyboard();
+        }
+        return true;
+    }
+}
+
+function toggleKeyboard() {
+    let keyboard = document.querySelector('.keyboard')
+    if (keyboard.style.display === "none") {
+        keyboard.style.display = "block";
+    } else {
+        keyboard.style.display = "none";
+    }
 }
 
 function initKeyboard(langKeys) {
@@ -52,7 +72,7 @@ function initKeyboard(langKeys) {
 
                     case 'Enter':
                         button.addEventListener('click', _Enter);
-                        break;    
+                        break;
 
                     case 'ShiftLeft':
                     case 'ShiftRight':
