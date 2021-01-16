@@ -4,7 +4,7 @@ const en = [
         { code: 'Backquote', key: '`', shift: '~' },
         { code: 'Digit1', key: '1', shift: '!' },
         { code: 'Digit2', key: '2', shift: '@' },
-        { code: 'Digit2', key: '3', shift: '#' },
+        { code: 'Digit3', key: '3', shift: '#' },
         { code: 'Digit4', key: '4', shift: '$' },
         { code: 'Digit5', key: '5', shift: '%' },
         { code: 'Digit6', key: '6', shift: '^' },

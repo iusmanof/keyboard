@@ -45,12 +45,15 @@ function initKeyboard(langKeys) {
                     // Implement FnKey 
                     case 'CapsLock':
                         button.addEventListener('click', _Caps);
+                        const toggleCaps = document.createElement('div');
+                        toggleCaps.setAttribute('id', 'toggleCaps');
+                        button.appendChild(toggleCaps);
                         break;
                     case 'ShiftLeft':
                     case 'ShiftRight':
                         button.addEventListener('click', _Shift);
                         break;
-                        
+
                         //Unimplement FnKey
                     case 'Tab':
                         button.addEventListener('click', _Tab);
@@ -67,11 +70,56 @@ function initKeyboard(langKeys) {
         keyboard.appendChild(row);
     });
 
+
+  
+
     document.body.appendChild(keyboard);
 }
 
 function _Shift() {
-    console.log('Shift click implement in next version')
+    let btn = document.querySelectorAll(' .button');
+
+    for (const property in btn) {
+        let buttonText = btn[property].textContent;
+        if (buttonText != undefined && buttonText.length <= 1) {
+            btn[property].textContent = findShiftElement(buttonText);
+        }
+    }
+
+    isShift = !isShift;
+}
+
+function findShiftElement(btnText) {
+    let shiftElement;
+
+    if (!isShift) {
+        langKeys.forEach((row) => {
+            row.forEach((element) => {
+                if (element.hasOwnProperty('shift')) {
+                    for (const property in element) {
+                        if (btnText === element['key']) {
+                            shiftElement = element['shift'];
+                        }
+                    }
+                }
+
+            })
+        });
+    } else {
+        langKeys.forEach((row) => {
+            row.forEach((element) => {
+                if (element.hasOwnProperty('shift')) {
+                    for (const property in element) {
+                        if (btnText === element['shift']) {
+                            shiftElement = element['key'];
+                        }
+                    }
+                }
+            })
+        });
+    }
+
+    return shiftElement;
 }
 
 function _Tab() {
@@ -80,6 +128,7 @@ function _Tab() {
 
 function _Caps() {
     let btn = document.querySelectorAll(' .button');
+ 
     for (const property in btn) {
         let buttonText = btn[property].textContent;
         if (buttonText != undefined && isLetter(buttonText)) {
@@ -88,6 +137,12 @@ function _Caps() {
         }
     }
     isCaps = !isCaps;
+    statusCaps();
+}
+
+function statusCaps(){
+    let toggleCaps = document.getElementById('toggleCaps');
+    toggleCaps.classList.toggle('toggleCaps-active');
 }
 
 function isLetter(str) {
