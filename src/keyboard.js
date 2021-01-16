@@ -1,7 +1,3 @@
-import {
-    doc
-} from 'prettier';
-
 import en from './en.js'
 import ruKeys from './ruKeys.js'
 const keys__content = document.querySelector('.keys__content');
@@ -49,31 +45,40 @@ function initKeyboard(langKeys) {
                         toggleCaps.setAttribute('id', 'toggleCaps');
                         button.appendChild(toggleCaps);
                         break;
+
+                    case 'Backspace':
+                        button.addEventListener('click', _Backspace);
+                        break;
+
+                    case 'Enter':
+                        button.addEventListener('click', _Enter);
+                        break;    
+
                     case 'ShiftLeft':
                     case 'ShiftRight':
                         button.addEventListener('click', _Shift);
                         break;
-
                         //Unimplement FnKey
                     case 'Tab':
                         button.addEventListener('click', _Tab);
                         break;
 
-
-
                 }
             }
-
-
             row.append(button);
         });
         keyboard.appendChild(row);
     });
-
-
-  
-
     document.body.appendChild(keyboard);
+}
+
+
+function _Backspace() {
+    input.value = input.value.slice(0, -1);
+}
+
+function _Enter() {
+    input.value += '\n';
 }
 
 function _Shift() {
@@ -128,7 +133,7 @@ function _Tab() {
 
 function _Caps() {
     let btn = document.querySelectorAll(' .button');
- 
+
     for (const property in btn) {
         let buttonText = btn[property].textContent;
         if (buttonText != undefined && isLetter(buttonText)) {
@@ -140,7 +145,7 @@ function _Caps() {
     statusCaps();
 }
 
-function statusCaps(){
+function statusCaps() {
     let toggleCaps = document.getElementById('toggleCaps');
     toggleCaps.classList.toggle('toggleCaps-active');
 }
@@ -190,10 +195,6 @@ function isLetter(str) {
 //     input.value += '\n';
 // }
 
-// function _Backspace() {
-//     let input = document.querySelector(' .input__content');
-//     input.value = input.value.slice(0, -1);
-// }
 
 // function _Space() {
 //     let input = document.querySelector(' .input__content');
