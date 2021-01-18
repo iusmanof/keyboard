@@ -1,3 +1,6 @@
+import {
+    keysIn
+} from 'lodash';
 import en from './en.js'
 import ruKeys from './ruKeys.js'
 const keys__content = document.querySelector('.keys__content');
@@ -5,16 +8,27 @@ let isCaps = false;
 let isShift = false;
 let langKeys = en;
 let input = document.querySelector(' .input');
-
+let KeysInArray = [];
 
 function main() {
+    transformKeysInArray();
     document.addEventListener('keydown', _keyDown);
     initKeyboard(langKeys);
-    showKeyboard();
+    showHideKeyboard();
+
 }
 
-function showKeyboard() {
+function transformKeysInArray() {
+    langKeys.forEach((row) => {
+        row.forEach((element) => {
+            if (element.hasOwnProperty('shift')) {
+                KeysInArray.push(element);
+            }
+        })
+    });
+}
 
+function showHideKeyboard() {
     document.onkeydown = function (e) {
         e = e || window.event;
         if (e.shiftKey && e.which == 9) {
@@ -61,8 +75,8 @@ function initKeyboard(langKeys) {
                     // Implement FnKey 
                     case 'CapsLock':
                         button.addEventListener('click', _Caps);
-                        const toggleCaps = document.createElement('div');
-                        toggleCaps.setAttribute('id', 'toggleCaps');
+                        let toggleCaps = document.createElement('div');
+                        toggleCaps.setAttribute('class', 'togglePointer');
                         button.appendChild(toggleCaps);
                         break;
 
@@ -77,6 +91,9 @@ function initKeyboard(langKeys) {
                     case 'ShiftLeft':
                     case 'ShiftRight':
                         button.addEventListener('click', _Shift);
+                        let toggleShift = document.createElement('div');
+                        toggleShift.setAttribute('class', 'togglePointer');
+                        button.appendChild(toggleShift);
                         break;
                         //Unimplement FnKey
                     case 'Tab':
@@ -92,7 +109,6 @@ function initKeyboard(langKeys) {
     document.body.appendChild(keyboard);
 }
 
-
 function _Backspace() {
     input.value = input.value.slice(0, -1);
 }
@@ -101,64 +117,54 @@ function _Enter() {
     input.value += '\n';
 }
 
-function _Shift() {
-    let btn = document.querySelectorAll(' .button');
-
-    for (const property in btn) {
-        let buttonText = btn[property].textContent;
-        if (buttonText != undefined && buttonText.length <= 1) {
-            btn[property].textContent = findShiftElement(buttonText);
-        }
-    }
-
-    isShift = !isShift;
-}
-
-function findShiftElement(btnText) {
-    let shiftElement;
-
-    if (!isShift) {
-        langKeys.forEach((row) => {
-            row.forEach((element) => {
-                if (element.hasOwnProperty('shift')) {
-                    for (const property in element) {
-                        if (btnText === element['key']) {
-                            shiftElement = element['shift'];
-                        }
-                    }
-                }
-
-            })
-        });
-    } else {
-        langKeys.forEach((row) => {
-            row.forEach((element) => {
-                if (element.hasOwnProperty('shift')) {
-                    for (const property in element) {
-                        if (btnText === element['shift']) {
-                            shiftElement = element['key'];
-                        }
-                    }
-                }
-            })
-        });
-    }
-
-    return shiftElement;
-}
-
 function _Tab() {
     console.log('Tab click implement in next version')
 }
 
+function _Shift() {
+    let btn = document.querySelectorAll(' .button');
+    for (const property in btn) {
+        let buttonText = btn[property].textContent;
+        if (buttonText != undefined && isAnyNonWhiteSpaceCharacter(buttonText)) {
+            btn[property].textContent = !isShift ? getShift(buttonText) : getUnShift(buttonText);
+        }
+    }
+    isShift = !isShift;
+    statusShift();
+}
+
+function getShift(buttonText) {
+    let shiftKey;
+    KeysInArray.find(obj => {
+        if(isCaps && isLetter(buttonText)){
+            shiftKey = buttonText.toLowerCase()
+        }
+        if (obj.key === buttonText){
+            shiftKey = obj.shift
+        }  
+    })
+    return shiftKey;
+}
+
+function getUnShift(buttonText) {
+    let shiftKey;
+    KeysInArray.find(obj => {
+        if(isCaps && isLetter(buttonText)){
+            shiftKey = buttonText.toUpperCase()
+        }
+        if (obj.shift === buttonText)
+            shiftKey = obj.key
+    })
+    return shiftKey;
+}
+
 function _Caps() {
     let btn = document.querySelectorAll(' .button');
-
     for (const property in btn) {
         let buttonText = btn[property].textContent;
         if (buttonText != undefined && isLetter(buttonText)) {
-            btn[property].textContent = isCaps ? btn[property].textContent = btn[property].textContent.toLowerCase() :
-                btn[property].textContent = btn[property].textContent.toUpperCase();
+            btn[property].textContent = isCaps ? buttonText.toLowerCase() :
+                buttonText.toUpperCase();
         }
     }
     isCaps = !isCaps;
@@ -166,12 +172,21 @@ function _Caps() {
 }
 
 function statusCaps() {
-    let toggleCaps = document.getElementById('toggleCaps');
-    toggleCaps.classList.toggle('toggleCaps-active');
+    let toggle = document.getElementsByClassName('togglePointer')[0];
+    toggle.classList.toggle('togglePointer-active');
+}
+
+function statusShift() {
+    let toggle = document.getElementsByClassName('togglePointer')[1];
+    toggle.classList.toggle('togglePointer-active');
 }
 
 function isLetter(str) {
     return str.length === 1 && str.match(/[a-z]/i);
+}
+
+function isAnyNonWhiteSpaceCharacter(str) {
+    return str.length === 1 && str.match(/[\S]/i);
 }
 
 // function _Left(){
@@ -219,10 +234,7 @@ function isLetter(str) {
 // function _Space() {
 //     let input = document.querySelector(' .input__content');
 //     input.value += ' ';
-// }
-
-// function inputFunc(e) {
-//     let input = document.querySelector(' .input__content');
+// }falseput = document.querySelector(' .input__content');
 //     input.focus();
 //     input.setRangeText(e.target.textContent, input.selectionStart, input.selectionEnd, "end");
 // }
@@ -319,9 +331,3 @@ export {
 };
 
 
-// let input = document.querySelector(' .input__content');         - rebuild
-// DocumentFragment вставляет пачку DOM элементов или append/prepend
-// create line * 5 in html (0-`1234 1-qwerty 2-asdfg 3-zxcvb 4 ctrl space)
-// in js code rename textarea or input variables
-
-//task with *   up and down cursor    think !!!

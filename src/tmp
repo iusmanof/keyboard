@@ -1,1 +1,35 @@
-caps
+Сделать id для Shift 
+ 
+ 1. SHift and Caps need Refactor !!!
+ 
+ button.addEventListener('click', _Caps);
+                        let toggleCaps = document.createElement('div');
+                        toggleCaps.setAttribute('id', 'togglePointer');
+                        button.appendChild(toggleCaps);
+
+ button.addEventListener('click', _Shift);
+                        let toggleShift = document.createElement('div');
+                        toggleShift.setAttribute('id', 'togglePointer');
+                        button.appendChild(toggleShift);
+                        break;
+
+2. Need Refactor
+
+function statusCaps() {
+    let toggle = document.getElementsByClassName('togglePointer')[0];
+    toggle.classList.toggle('togglePointer-active');
+}
+
+function statusShift() {
+    let toggle = document.getElementsByClassName('togglePointer')[1];
+    toggle.classList.toggle('togglePointer-active');
+}
+
+
+
+// let input = document.querySelector(' .input__content');         - rebuild
+// DocumentFragment вставляет пачку DOM элементов или append/prepend
+// create line * 5 in html (0-`1234 1-qwerty 2-asdfg 3-zxcvb 4 ctrl space)
+// in js code rename textarea or input variables
+
+//task with *   up and down cursor    think !!!
