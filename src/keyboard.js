@@ -162,10 +162,22 @@ function _Caps() {
     let btn = document.querySelectorAll(' .button');
     for (const property in btn) {
         let buttonText = btn[property].textContent;
-        if (buttonText != undefined && isLetter(buttonText)) {
+        
+        if (buttonText != undefined && isLetter(buttonText)) {  
             btn[property].textContent = isCaps ? buttonText.toLowerCase() :
                 buttonText.toUpperCase();
         }
+
+        if(buttonText != undefined && isShift && isLetter(buttonText)){
+            
+            if(isCaps){
+                btn[property].textContent = buttonText.toUpperCase()
+            }else{
+                btn[property].textContent = buttonText.toLowerCase()
+            }
+        }
+
+        
     }
     isCaps = !isCaps;
     statusCaps();
