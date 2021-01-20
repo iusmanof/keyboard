@@ -167,11 +167,10 @@ function _Caps() {
     for (const property in btn) {
         let buttonText = btn[property].textContent;
         
-        if (buttonText != undefined && isLetter(buttonText)) {  
+        if (buttonText != undefined && isLetter(buttonText)) { 
             btn[property].textContent = isCaps ? buttonText.toLowerCase() :
                 buttonText.toUpperCase();
         }
-
         if(buttonText != undefined && isShift && isLetter(buttonText)){
             
             if(isCaps){
@@ -198,7 +197,7 @@ function statusShift() {
 }
 
 function isLetter(str) {
-    return str.length === 1 && str.match(/[a-zа-я]/i);
+    return str.length === 1 && str.match(/[a-zа-ё]/i);
 }
 
 function isAnyNonWhiteSpaceCharacter(str) {
