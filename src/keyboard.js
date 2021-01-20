@@ -7,7 +7,7 @@ let input = document.querySelector(' .input');
 let KeysInArray = [];
 
 function main() {
-   
+
     document.addEventListener('keydown', _keyDown);
     initKeyboard(langKeys);
     showHideKeyboard();
@@ -93,15 +93,27 @@ function initKeyboard(langKeys) {
                         toggleShift.setAttribute('class', 'togglePointer');
                         button.appendChild(toggleShift);
                         break;
-                    case  'en':
+                    case 'en':
                         button.addEventListener('click', _en);
-                        break;   
-                    case  'ru':
+                        break;
+                    case 'ru':
                         button.addEventListener('click', _ru);
+                        break;
+                    case 'ArrowLeft':
+                        button.addEventListener('click', _Left);
+                        break;
+                    case 'ArrowRight':
+                        button.addEventListener('click', _Right);
                         break;
                         //Unimplement FnKey
                     case 'Tab':
                         button.addEventListener('click', _Tab);
+                        break;
+                    case 'ArrowUp':
+                        button.addEventListener('click', _Up);
+                        break;
+                    case 'ArrowDown':
+                        button.addEventListener('click', _Down);
                         break;
 
                 }
@@ -140,12 +152,12 @@ function _Shift() {
 function getShift(buttonText) {
     let shiftKey;
     KeysInArray.find(obj => {
-        if(isCaps && isLetter(buttonText)){
+        if (isCaps && isLetter(buttonText)) {
             shiftKey = buttonText.toLowerCase()
         }
-        if (obj.key === buttonText){
+        if (obj.key === buttonText) {
             shiftKey = obj.shift
-        }  
+        }
     })
     return shiftKey;
 }
@@ -153,7 +165,7 @@ function getShift(buttonText) {
 function getUnShift(buttonText) {
     let shiftKey;
     KeysInArray.find(obj => {
-        if(isCaps && isLetter(buttonText)){
+        if (isCaps && isLetter(buttonText)) {
             shiftKey = buttonText.toUpperCase()
         }
         if (obj.shift === buttonText)
@@ -166,21 +178,21 @@ function _Caps() {
     let btn = document.querySelectorAll(' .button');
     for (const property in btn) {
         let buttonText = btn[property].textContent;
-        
-        if (buttonText != undefined && isLetter(buttonText)) { 
+
+        if (buttonText != undefined && isLetter(buttonText)) {
             btn[property].textContent = isCaps ? buttonText.toLowerCase() :
                 buttonText.toUpperCase();
         }
-        if(buttonText != undefined && isShift && isLetter(buttonText)){
-            
-            if(isCaps){
+        if (buttonText != undefined && isShift && isLetter(buttonText)) {
+
+            if (isCaps) {
                 btn[property].textContent = buttonText.toUpperCase()
-            }else{
+            } else {
                 btn[property].textContent = buttonText.toLowerCase()
             }
         }
 
-        
+
     }
     isCaps = !isCaps;
     statusCaps();
@@ -204,26 +216,26 @@ function isAnyNonWhiteSpaceCharacter(str) {
     return str.length === 1 && str.match(/[\S]/i);
 }
 
-// function _Left(){
-//     let textarea = document.querySelector(' .input__content');
-//     textarea.focus();
-//     textarea.selectionEnd--;
-// }
+function _Left() {
+    let textarea = document.querySelector('.input');
+    textarea.focus();
+    textarea.selectionEnd--;
+}
 
-// function _Right(){
-//     let textarea = document.querySelector(' .input__content');
-//     textarea.focus();
-//     let cursor = textarea.selectionStart;
-//         textarea.selectionStart++;
-// }
+function _Right() {
+    let textarea = document.querySelector('.input');
+    textarea.focus();
+    let cursor = textarea.selectionStart;
+    textarea.selectionStart++;
+}
 
-// function _Up(){
-//   console.log('Implement up move cursor. I don\'t know how to do it yet');
-// }
+function _Up() {
+    console.log( 'This click implement in next version')
+}
 
-// function _Down(){
-//     console.log('Implement down move cursor. I don\'t know how to do it yet');
-// }
+function _Down(e) {
+    console.log( 'This click implement in next version')
+}
 
 function _en() {
     let keyboard = document.querySelector(' .keyboard');
@@ -239,97 +251,6 @@ function _ru() {
     initKeyboard(langKeys);
 }
 
-
-// function _Enter() {
-//     let input = document.querySelector(' .input__content');
-//     input.value += '\n';
-// }
-
-
-// function _Space() {
-//     let input = document.querySelector(' .input__content');
-//     input.value += ' ';
-// }falseput = document.querySelector(' .input__content');
-//     input.focus();
-//     input.setRangeText(e.target.textContent, input.selectionStart, input.selectionEnd, "end");
-// }
-
-
-// if (langKeys.code.property {
-//     btn[index].innerHTML = e.key;
-// }
-// if (isShift) {
-//     langKeys.forEach((e, index) => {
-//         // only for letter where can shift letter  NOT CAPS NOT ENTER etc - buttons 
-//         langKeys.forEach((e, index) => {
-//             // only for letter where can shift letter  NOT CAPS NOT ENTER etc - buttons 
-//             if (e.shift != false) {
-//                 if (e.code.match(/^[Key]+/)) {
-//                     btn[index].innerHTML = e.key;
-//                 } else {
-//                     btn[index].innerHTML = e.shift;
-//                 }
-//             }
-//         })
-//     })
-// } else {
-// if (!isCaps) {
-//     langKeys.forEach((e, index) => {
-//         if (e.caps != false) {
-//             btn[index].innerHTML = e.caps;
-//         }
-//     })
-// } else {
-// langKeys.forEach((e, index) => {
-//     if (e.caps != false) {
-//         btn[index].innerHTML = e.key;
-//     }
-// })
-// }\
-// isCaps = !isCaps;
-// }
-// Object.values(enKeys).forEach(value => {
-//     let text = document.createTextNode(`${value}`);
-//     let span = document.getElementsByTagName('span');
-//     console.log(span[1].textContent);
-// })
-
-
-// function _Shift() {
-//     let btn = document.querySelectorAll(' .btn');
-//     // Caps = true
-//     if (isCaps) {
-//         lang.forEach((e, index) => {
-//             // only for letter where can shift letter  NOT CAPS NOT ENTER etc - buttons 
-//             if (e.shift != false) {
-//                 if (e.code.match(/^[Key]+/)) {
-//                     btn[index].innerHTML = e.key;
-//                 } else {
-//                     btn[index].innerHTML = e.shift;
-//                 }
-//             }
-//         })
-//     }
-//     // Shift = true, Caps = false
-//     else {
-//         if (!isShift) {
-//             lang.forEach((e, index) => {
-//                 if (e.shift != false) {
-//                     btn[index].innerHTML = e.shift;
-//                 }
-//             })
-//         } else {
-//             lang.forEach((e, index) => {
-//                 if (e.shift != false) {
-//                     btn[index].innerHTML = e.key;
-//                 }
-//             })
-//         }
-//     }
-//     isShift = !isShift;
-
-// }
-
 function _keyDown(e) {
     let textarea = document.querySelector(' .input');
     textarea.focus();
@@ -344,5 +265,3 @@ function _keyDown(e) {
 export {
     main
 };
-
-
