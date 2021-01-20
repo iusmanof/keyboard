@@ -1,9 +1,5 @@
-import {
-    keysIn
-} from 'lodash';
 import en from './en.js'
-import ruKeys from './ruKeys.js'
-const keys__content = document.querySelector('.keys__content');
+import ru from './ru.js'
 let isCaps = false;
 let isShift = false;
 let langKeys = en;
@@ -11,7 +7,7 @@ let input = document.querySelector(' .input');
 let KeysInArray = [];
 
 function main() {
-    transformKeysInArray();
+   
     document.addEventListener('keydown', _keyDown);
     initKeyboard(langKeys);
     showHideKeyboard();
@@ -48,6 +44,8 @@ function toggleKeyboard() {
 }
 
 function initKeyboard(langKeys) {
+
+    transformKeysInArray();
 
     const keyboard = document.createElement('div');
     keyboard.classList.add('keyboard');
@@ -94,6 +92,12 @@ function initKeyboard(langKeys) {
                         let toggleShift = document.createElement('div');
                         toggleShift.setAttribute('class', 'togglePointer');
                         button.appendChild(toggleShift);
+                        break;
+                    case  'en':
+                        button.addEventListener('click', _en);
+                        break;   
+                    case  'ru':
+                        button.addEventListener('click', _ru);
                         break;
                         //Unimplement FnKey
                     case 'Tab':
@@ -194,7 +198,7 @@ function statusShift() {
 }
 
 function isLetter(str) {
-    return str.length === 1 && str.match(/[a-z]/i);
+    return str.length === 1 && str.match(/[a-zа-я]/i);
 }
 
 function isAnyNonWhiteSpaceCharacter(str) {
@@ -222,19 +226,19 @@ function isAnyNonWhiteSpaceCharacter(str) {
 //     console.log('Implement down move cursor. I don\'t know how to do it yet');
 // }
 
-// function _en() {
-//     let keyboard = document.querySelector(' .keyboard');
-//     keyboard.remove();
-//     lang = ruKeys;
-//     initKeyboard(lang);
-// }
+function _en() {
+    let keyboard = document.querySelector(' .keyboard');
+    keyboard.remove();
+    langKeys = ru;
+    initKeyboard(langKeys);
+}
 
-// function _ru() {
-//     let keyboard = document.querySelector(' .keyboard');
-//     keyboard.remove();
-//     lang = enKeys;
-//     initKeyboard(lang);
-// }
+function _ru() {
+    let keyboard = document.querySelector(' .keyboard');
+    keyboard.remove();
+    langKeys = en;
+    initKeyboard(langKeys);
+}
 
 
 // function _Enter() {
@@ -330,7 +334,7 @@ function isAnyNonWhiteSpaceCharacter(str) {
 function _keyDown(e) {
     let textarea = document.querySelector(' .input');
     textarea.focus();
-    // console.log(` ${e.key}`);
+    console.log(` ${e.code}`);
     let pressedKey = document.getElementById(`${e.code}`);
     pressedKey.className += " active";
     setTimeout(() => {
