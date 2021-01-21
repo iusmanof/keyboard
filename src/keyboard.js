@@ -109,13 +109,19 @@ function initKeyboard(langKeys) {
                     case 'Tab':
                         button.addEventListener('click', _Tab);
                         break;
+                    case 'ControlLeft':
+                    case 'ControlRight':
+                        button.addEventListener('click', _Ctrl);
+                        break;
+                    case 'AltLeft':
+                        button.addEventListener('click', _Alt);
+                        break;
                     case 'ArrowUp':
                         button.addEventListener('click', _Up);
                         break;
                     case 'ArrowDown':
                         button.addEventListener('click', _Down);
                         break;
-
                 }
             }
             row.append(button);
@@ -131,10 +137,6 @@ function _Backspace() {
 
 function _Enter() {
     input.value += '\n';
-}
-
-function _Tab() {
-    console.log('Tab click implement in next version')
 }
 
 function _Shift() {
@@ -230,11 +232,23 @@ function _Right() {
 }
 
 function _Up() {
-    console.log( 'This click implement in next version')
+    console.log('This click implement in next version')
 }
 
 function _Down(e) {
-    console.log( 'This click implement in next version')
+    console.log('This click implement in next version')
+}
+
+function _Tab() {
+    console.log('This click implement in next version')
+}
+
+function _Ctrl() {
+    console.log('This click implement in next version')
+}
+
+function _Alt(){
+    console.log('This click implement in next version')
 }
 
 function _en() {
