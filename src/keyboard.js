@@ -206,8 +206,11 @@ function statusCaps() {
 }
 
 function statusShift() {
-    let toggle = document.getElementsByClassName('togglePointer')[1];
-    toggle.classList.toggle('togglePointer-active');
+    let toggle1 = document.getElementsByClassName('togglePointer')[1];
+    let toggle2 = document.getElementsByClassName('togglePointer')[2];
+
+    toggle1.classList.toggle('togglePointer-active');
+    toggle2.classList.toggle('togglePointer-active');
 }
 
 function isLetter(str) {
@@ -247,7 +250,7 @@ function _Ctrl() {
     console.log('This click implement in next version')
 }
 
-function _Alt(){
+function _Alt() {
     console.log('This click implement in next version')
 }
 
@@ -268,12 +271,18 @@ function _ru() {
 function _keyDown(e) {
     let textarea = document.querySelector(' .input');
     textarea.focus();
-    console.log(` ${e.code}`);
+    // console.log(` ${e.code}`);
     let pressedKey = document.getElementById(`${e.code}`);
+
     pressedKey.className += " active";
     setTimeout(() => {
         pressedKey.className = pressedKey.className.replace(" active", "");
     }, 200);
+
+    if (e.code === 'CapsLock')
+        _Caps();
+    if (e.code === 'ShiftLeft' || e.code === 'ShiftRight')
+        _Shift();   
 }
 
 export {
