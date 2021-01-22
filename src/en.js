@@ -72,7 +72,7 @@ const en = [
     // row - 5 
     [
         { code: 'ControlLeft', key: 'Ctrl', fnKey: true },
-        { code: 'AltLeft', key: 'Alt', fnKey: true },
+        { code: 'Sound', key: '', fnKey: true },
         { code: 'Space', key: ' '},
         { code: 'ControlRight', key: 'Ctrl', fnKey: true },
         { code: 'en', key: 'en', fnKey: true },

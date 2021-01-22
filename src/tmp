@@ -25,7 +25,7 @@ function statusShift() {
     toggle.classList.toggle('togglePointer-active');
 }
 
-3. Смена языка при клике
+3. При смене языка статус зыук
 
 // let input = document.querySelector(' .input__content');         - rebuild
 // DocumentFragment вставляет пачку DOM элементов или append/prepend
