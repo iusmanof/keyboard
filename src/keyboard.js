@@ -27,8 +27,14 @@ function transformKeysInArray() {
 function showHideKeyboard() {
     document.onkeydown = function (e) {
         e = e || window.event;
-        if (e.shiftKey && e.which == 9) {
+
+        // show / hide keyboard
+        if (e.shiftKey && e.which === 9) {
             toggleKeyboard();
+        }
+
+        if (e.ctrlKey && e.altKey) {
+            toggleLanguage()
         }
         return true;
     }
@@ -41,6 +47,10 @@ function toggleKeyboard() {
     } else {
         keyboard.style.display = "none";
     }
+}
+
+function toggleLanguage() {
+    langKeys === en ? _en() : _ru();
 }
 
 function initKeyboard(langKeys) {
@@ -64,12 +74,16 @@ function initKeyboard(langKeys) {
                 button.addEventListener('click', (e) => {
                     input.focus();
                     input.setRangeText(e.target.textContent, input.selectionStart, input.selectionEnd, "end");
+                    keyClickSound();
                 });
             }
             // Listener: Click fnKey
             else {
-                switch (element.code) {
 
+                // add sound to all fnkeys 
+                button.addEventListener('click', fnClickSound);
+
+                switch (element.code) {
                     // Implement FnKey 
                     case 'CapsLock':
                         button.addEventListener('click', _Caps);
@@ -129,6 +143,18 @@ function initKeyboard(langKeys) {
         keyboard.appendChild(row);
     });
     document.body.appendChild(keyboard);
+}
+
+function keyClickSound() {
+    var audio = new Audio()
+    audio.src = langKeys === en ? './assets/sound/enKeyClick.mp3' : './assets/sound/ruKeySound.mp3';
+    audio.autoplay = true
+}
+
+function fnClickSound() {
+    var audio = new Audio()
+    audio.src = './assets/sound/fn_click.mp3'
+    audio.autoplay = true
 }
 
 function _Backspace() {
@@ -259,6 +285,10 @@ function _en() {
     keyboard.remove();
     langKeys = ru;
     initKeyboard(langKeys);
+
+    window.onlanguagechange = function (event) {
+        console.log('languagechange event detected!');
+    };
 }
 
 function _ru() {
@@ -282,7 +312,7 @@ function _keyDown(e) {
     if (e.code === 'CapsLock')
         _Caps();
     if (e.code === 'ShiftLeft' || e.code === 'ShiftRight')
-        _Shift();   
+        _Shift();
 }
 
 export {
