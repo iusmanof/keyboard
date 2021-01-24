@@ -1,4 +1,6 @@
-import { doc } from "prettier";
+import {
+  doc
+} from "prettier";
 import en from "./en.js";
 import ru from "./ru.js";
 let isCaps = false;
@@ -42,11 +44,7 @@ function showHideKeyboard() {
 
 function toggleKeyboard() {
   let keyboard = document.querySelector(".keyboard");
-  if (keyboard.style.display === "none") {
-    keyboard.style.display = "block";
-  } else {
-    keyboard.style.display = "none";
-  }
+  keyboard.style.display = keyboard.style.display === "none" ? "block" : "none";
 }
 
 function toggleLanguage() {
@@ -129,7 +127,7 @@ function initKeyboard(langKeys) {
             button.addEventListener("click", _Sound);
             break;
 
-          //Unimplement FnKey
+            //Unimplement FnKey
           case "Tab":
             button.addEventListener("click", _Tab);
             break;
@@ -167,9 +165,9 @@ function keyClickSound() {
   if (sound) {
     var audio = new Audio();
     audio.src =
-      langKeys === en
-        ? "./assets/sound/enKeyClick.mp3"
-        : "./assets/sound/ruKeySound.mp3";
+      langKeys === en ?
+      "./assets/sound/enKeyClick.mp3" :
+      "./assets/sound/ruKeySound.mp3";
     audio.autoplay = true;
   }
 }
@@ -195,9 +193,9 @@ function _Shift() {
   for (const property in btn) {
     let buttonText = btn[property].textContent;
     if (buttonText != undefined && isAnyNonWhiteSpaceCharacter(buttonText)) {
-      btn[property].textContent = !isShift
-        ? getShift(buttonText)
-        : getUnShift(buttonText);
+      btn[property].textContent = !isShift ?
+        getShift(buttonText) :
+        getUnShift(buttonText);
     }
   }
   isShift = !isShift;
@@ -234,9 +232,9 @@ function _Caps() {
     let buttonText = btn[property].textContent;
 
     if (buttonText != undefined && isLetter(buttonText)) {
-      btn[property].textContent = isCaps
-        ? buttonText.toLowerCase()
-        : buttonText.toUpperCase();
+      btn[property].textContent = isCaps ?
+        buttonText.toLowerCase() :
+        buttonText.toUpperCase();
     }
     if (buttonText != undefined && isShift && isLetter(buttonText)) {
       if (isCaps) {
@@ -333,4 +331,6 @@ function _keyDown(e) {
   if (e.code === "ShiftLeft" || e.code === "ShiftRight") _Shift();
 }
 
-export { main };
+export {
+  main
+};
