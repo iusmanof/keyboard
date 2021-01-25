@@ -1,6 +1,4 @@
-import {
-  doc
-} from "prettier";
+import { doc } from "prettier";
 import en from "./en.js";
 import ru from "./ru.js";
 let isCaps = false;
@@ -9,12 +7,6 @@ let langKeys = en;
 let input = document.querySelector(" .input");
 let KeysInArray = [];
 let sound = true;
-
-function main() {
-  document.addEventListener("keydown", _keyDown);
-  initKeyboard(langKeys);
-  showHideKeyboard();
-}
 
 function transformKeysInArray() {
   langKeys.forEach((row) => {
@@ -51,7 +43,15 @@ function toggleLanguage() {
   langKeys === en ? _en() : _ru();
 }
 
-function initKeyboard(langKeys) {
+// need refactor
+function initKeyboard() {
+
+  window.onload = () => {
+    document.querySelector(".input").value = "";
+  };
+  
+  document.addEventListener("keydown", _keyDown);
+  showHideKeyboard();
   transformKeysInArray();
   sound = true;
 
@@ -126,21 +126,6 @@ function initKeyboard(langKeys) {
               '<img id="sound" src="./assets/sound-img/soundOn.svg" alt="sound">';
             button.addEventListener("click", _Sound);
             break;
-
-            //Unimplement FnKey
-          case "Tab":
-            button.addEventListener("click", _Tab);
-            break;
-          case "ControlLeft":
-          case "ControlRight":
-            button.addEventListener("click", _Ctrl);
-            break;
-          case "ArrowUp":
-            button.addEventListener("click", _Up);
-            break;
-          case "ArrowDown":
-            button.addEventListener("click", _Down);
-            break;
         }
       }
       row.append(button);
@@ -154,10 +139,10 @@ function _Sound() {
   let soundSrc = document.getElementById("sound").getAttribute("src");
   if (soundSrc === "./assets/sound-img/soundOn.svg") {
     document.getElementById("sound").src = "./assets/sound-img/soundOff.svg";
-    sound = false
+    sound = false;
   } else {
     document.getElementById("sound").src = "./assets/sound-img/soundOn.svg";
-    sound = true
+    sound = true;
   }
 }
 
@@ -165,9 +150,9 @@ function keyClickSound() {
   if (sound) {
     var audio = new Audio();
     audio.src =
-      langKeys === en ?
-      "./assets/sound/enKeyClick.mp3" :
-      "./assets/sound/ruKeySound.mp3";
+      langKeys === en
+        ? "./assets/sound/enKeyClick.mp3"
+        : "./assets/sound/ruKeySound.mp3";
     audio.autoplay = true;
   }
 }
@@ -193,9 +178,9 @@ function _Shift() {
   for (const property in btn) {
     let buttonText = btn[property].textContent;
     if (buttonText != undefined && isAnyNonWhiteSpaceCharacter(buttonText)) {
-      btn[property].textContent = !isShift ?
-        getShift(buttonText) :
-        getUnShift(buttonText);
+      btn[property].textContent = !isShift
+        ? getShift(buttonText)
+        : getUnShift(buttonText);
     }
   }
   isShift = !isShift;
@@ -232,9 +217,9 @@ function _Caps() {
     let buttonText = btn[property].textContent;
 
     if (buttonText != undefined && isLetter(buttonText)) {
-      btn[property].textContent = isCaps ?
-        buttonText.toLowerCase() :
-        buttonText.toUpperCase();
+      btn[property].textContent = isCaps
+        ? buttonText.toLowerCase()
+        : buttonText.toUpperCase();
     }
     if (buttonText != undefined && isShift && isLetter(buttonText)) {
       if (isCaps) {
@@ -282,22 +267,6 @@ function _Right() {
   textarea.selectionStart++;
 }
 
-function _Up() {
-  console.log("This click implement in next version");
-}
-
-function _Down(e) {
-  console.log("This click implement in next version");
-}
-
-function _Tab() {
-  console.log("This click implement in next version");
-}
-
-function _Ctrl() {
-  console.log("This click implement in next version");
-}
-
 function _en() {
   let keyboard = document.querySelector(" .keyboard");
   keyboard.remove();
@@ -331,6 +300,4 @@ function _keyDown(e) {
   if (e.code === "ShiftLeft" || e.code === "ShiftRight") _Shift();
 }
 
-export {
-  main
-};
+export { initKeyboard };
